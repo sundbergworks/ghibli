@@ -55,5 +55,68 @@ public class ghiblirestcontroller {
 
     }
 
+    @GetMapping("/getAllLocations")
+    String getAllLocations() throws JsonProcessingException {
+        RestTemplate restTemplate = new RestTemplate();
+        String fooResourceUrl = "https://ghibliapi.herokuapp.com/locations";
+        ResponseEntity<String> response = restTemplate.getForEntity(fooResourceUrl, String.class);
+
+        return response.getBody();
+
+    }
+
+    @GetMapping("/getByLocationId/{id}")
+    public String getByLocationId(@PathVariable("id") String locationId) {
+        RestTemplate restTemplate = new RestTemplate();
+        String fooResourceUrl = "https://ghibliapi.herokuapp.com/locations/" + locationId;
+        ResponseEntity<String> response = restTemplate.getForEntity(fooResourceUrl, String.class);
+
+        return response.getBody();
+
+    }
+
+    @GetMapping("/getAllSpecies")
+    String getAllSpecies() throws JsonProcessingException {
+        RestTemplate restTemplate = new RestTemplate();
+        String fooResourceUrl = "https://ghibliapi.herokuapp.com/species";
+        ResponseEntity<String> response = restTemplate.getForEntity(fooResourceUrl, String.class);
+
+        return response.getBody();
+
+    }
+
+
+    @GetMapping("/getBySpeciesId/{id}")
+    public String getBySpeciesId(@PathVariable("id") String speciesId) {
+        RestTemplate restTemplate = new RestTemplate();
+        String fooResourceUrl = "https://ghibliapi.herokuapp.com/species/" + speciesId;
+        ResponseEntity<String> response = restTemplate.getForEntity(fooResourceUrl, String.class);
+
+        return response.getBody();
+
+    }
+
+    @GetMapping("/getAllVehicles")
+    String getAllVehicles() throws JsonProcessingException {
+        RestTemplate restTemplate = new RestTemplate();
+        String fooResourceUrl = "https://ghibliapi.herokuapp.com/vehicles";
+        ResponseEntity<String> response = restTemplate.getForEntity(fooResourceUrl, String.class);
+
+        return response.getBody();
+
+    }
+
+    @GetMapping("/getByVehicleId/{id}")
+    public String getByVehicleId(@PathVariable("id") String vehicleId) {
+        RestTemplate restTemplate = new RestTemplate();
+        String fooResourceUrl = "https://ghibliapi.herokuapp.com/vehicles/" + vehicleId;
+        ResponseEntity<String> response = restTemplate.getForEntity(fooResourceUrl, String.class);
+
+        return response.getBody();
+
+    }
+
+
+
 
 }
